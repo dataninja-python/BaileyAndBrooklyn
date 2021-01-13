@@ -18,7 +18,7 @@ app.use(express.json());
 
 // ROUTES
 app.get("/", (request, response) => {
-    response.send("Hello World");
+    response.send("index");
 });
 
 // LISTENER

@@ -13,7 +13,7 @@ app.use(express.json());
 // CONTROLLER
 // ROUTES
 app.get("/", function (request, response) {
-    response.send("Hello World");
+    response.send("index");
 });
 // LISTENER
 app.listen(PORT, function () {
