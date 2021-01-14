@@ -1,23 +1,29 @@
 // DEPENDENCIES
 var express = require('express');
 var babyProducts = express.Router();
-var Product = require("../models/products.js");
+var Product = require("../models/productSchema.js");
+var theSeed = require("../models/products.js");
 //todo: pull in seed
 // ROUTES
 var baseRoute = "/";
 var newRoute = baseRoute + "new";
-var seedRoute = baseRoute + "insert/seed";
+var seedRoute = baseRoute + "/seed";
 var idRoute = baseRoute + ":id";
 var editRoute = idRoute + "/edit";
 var deleteRoute = "" + idRoute;
-babyProducts.get(baseRoute, function (request, response) {
-    response.send("index");
-});
 // babyProducts.get(baseRoute, (request, response) => {
-//     Product.find({}, (err, foundProducts) => {
-//         response.json(foundProducts);
-//     });
+//     response.send("index");
 // });
+babyProducts.get(baseRoute, function (request, response) {
+    Product.find({}, function (err, foundProducts) {
+        response.json(foundProducts);
+    });
+});
+babyProducts.get(seedRoute, function (request, response) {
+    Product.insertMany(theSeed, function (err, manyProducts) {
+        response.redirect(baseRoute);
+    });
+});
 babyProducts.post(baseRoute, function (request, response) {
     var body = request.body;
     Product.create(body, function (err, createdProducts) {
