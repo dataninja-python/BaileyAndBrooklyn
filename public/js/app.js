@@ -1,12 +1,32 @@
 class App extends React.Component {
-    handleSeed() {
-        this.props.history.push("/products/seed");
+    state = {
+        name: String,
+        img: String,
+        description: String,
+        products: []
+    }
+    componentDidMount = () => {
+        axios.get("/products").then((response) => {
+            this.setState({
+                products: response.data,
+            })
+        });
     }
     render = () => {
         return (
             <div>
                 <h4>Products for sale</h4>
-                <button type="button" onClick={()=>this.handleSeed()}>Seed</button>
+                <ul>
+                    {this.state.products.map(
+                        (product) => {
+                            return (
+                                <li key={product._id}>
+                                    {product.name}
+                                </li>
+                            )
+                        }
+                    )}
+                </ul>
             </div>
         );
     }
