@@ -13,10 +13,6 @@ const idRoute = `${baseRoute}:id`;
 const editRoute = `${idRoute}/edit`;
 const deleteRoute = `${idRoute}`;
 
-// babyProducts.get(baseRoute, (request, response) => {
-//     response.send("index");
-// });
-
 babyProducts.get(baseRoute, (request, response) => {
     Product.find({}, (err, foundProducts) => {
         response.json(foundProducts);
