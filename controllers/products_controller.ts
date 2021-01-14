@@ -8,7 +8,7 @@ const theSeed = require("../models/products.js");
 // ROUTES
 const baseRoute = "/";
 const newRoute = `${baseRoute}new`;
-const seedRoute = `${baseRoute}/seed`;
+const seedRoute = `${baseRoute}seed`;
 const idRoute = `${baseRoute}:id`;
 const editRoute = `${idRoute}/edit`;
 const deleteRoute = `${idRoute}`;

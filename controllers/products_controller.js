@@ -7,7 +7,7 @@ var theSeed = require("../models/products.js");
 // ROUTES
 var baseRoute = "/";
 var newRoute = baseRoute + "new";
-var seedRoute = baseRoute + "/seed";
+var seedRoute = baseRoute + "seed";
 var idRoute = baseRoute + ":id";
 var editRoute = idRoute + "/edit";
 var deleteRoute = "" + idRoute;
