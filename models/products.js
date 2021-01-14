@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
@@ -9,6 +10,8 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model('Product', productSchema);
+=======
+>>>>>>> d605dc886945fcd76a424fba1a95dfc0f8fb253a
 
 module.exports = [
     {
