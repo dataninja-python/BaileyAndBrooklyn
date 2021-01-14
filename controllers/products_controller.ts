@@ -19,13 +19,13 @@ babyProducts.get(baseRoute, (request, response) => {
     });
 });
 
-babyProducts.get(seedRoute, (request, response) => {
-    Product.insertMany(theSeed, (err, manyProducts) => {
-        response.redirect(baseRoute);
-    });
-});
+// babyProducts.get(seedRoute, (request, response) => {
+//     Product.insertMany(theSeed, (err, manyProducts) => {
+//         response.redirect(baseRoute);
+//     });
+// });
 
-babyProducts.post(baseRoute, (request, response) => {
+babyProducts.post("/", (request, response) => {
     let body = request.body;
     Product.create(body, (err, createdProducts) => {
         Product.find({}, (err, foundProducts) => {
@@ -46,7 +46,7 @@ babyProducts.put(idRoute, (request, response) => {
     });
 });
 
-babyProducts.delete(idRoute, (request, response) => {
+babyProducts.delete(deleteRoute, (request, response) => {
     let id = request.params.id;
     Product.findByIdAndRemove(id, (request, response) => {
         Product.find({}, (err, foundProducts) => {
