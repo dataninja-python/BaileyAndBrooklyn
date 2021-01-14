@@ -1,3 +1,5 @@
+// NOTE: this is similar code to what worked for yesterday's homework but now it crashes. PLEASE HELP
+
 // DEPENDENCIES
 const express = require('express');
 const babyProducts = express.Router();
@@ -46,7 +48,7 @@ babyProducts.put(idRoute, (request, response) => {
     });
 });
 
-babyProducts.delete(deleteRoute, (request, response) => {
+babyProducts.delete("/:id", (request, response) => {
     let id = request.params.id;
     Product.findByIdAndRemove(id, (request, response) => {
         Product.find({}, (err, foundProducts) => {

@@ -41,7 +41,7 @@ babyProducts.put(idRoute, function (request, response) {
         }
     });
 });
-babyProducts["delete"](deleteRoute, function (request, response) {
+babyProducts["delete"]("/:id", function (request, response) {
     var id = request.params.id;
     Product.findByIdAndRemove(id, function (request, response) {
         Product.find({}, function (err, foundProducts) {
