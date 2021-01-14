@@ -11,20 +11,17 @@ var seedRoute = baseRoute + "seed";
 var idRoute = baseRoute + ":id";
 var editRoute = idRoute + "/edit";
 var deleteRoute = "" + idRoute;
-// babyProducts.get(baseRoute, (request, response) => {
-//     response.send("index");
-// });
 babyProducts.get(baseRoute, function (request, response) {
     Product.find({}, function (err, foundProducts) {
         response.json(foundProducts);
     });
 });
-babyProducts.get(seedRoute, function (request, response) {
-    Product.insertMany(theSeed, function (err, manyProducts) {
-        response.redirect(baseRoute);
-    });
-});
-babyProducts.post(baseRoute, function (request, response) {
+// babyProducts.get(seedRoute, (request, response) => {
+//     Product.insertMany(theSeed, (err, manyProducts) => {
+//         response.redirect(baseRoute);
+//     });
+// });
+babyProducts.post("/", function (request, response) {
     var body = request.body;
     Product.create(body, function (err, createdProducts) {
         Product.find({}, function (err, foundProducts) {
@@ -44,7 +41,7 @@ babyProducts.put(idRoute, function (request, response) {
         }
     });
 });
-babyProducts["delete"](idRoute, function (request, response) {
+babyProducts["delete"](deleteRoute, function (request, response) {
     var id = request.params.id;
     Product.findByIdAndRemove(id, function (request, response) {
         Product.find({}, function (err, foundProducts) {
