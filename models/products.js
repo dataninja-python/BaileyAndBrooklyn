@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-const mongoose = require('mongoose');
-
-const productSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    img: {type: String, required: false},
-    description: {type: String, required: false},
-    price: {type: Number, required: true},
-    quantity: {type: Number, required: true}
-});
-
-const Product = mongoose.model('Product', productSchema);
-=======
->>>>>>> d605dc886945fcd76a424fba1a95dfc0f8fb253a
-
 module.exports = [
     {
       name: 'FUTURE VOTER Onesie',
